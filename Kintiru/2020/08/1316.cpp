@@ -12,19 +12,13 @@ int main(){
     for(int i = 0; i < n; i++) {
         std::string tmp = "";
         int tmpCount = 0;
-        for(int l = 0; l < a[i].length(); l++) {
-            if(!(a[i].length() - 1)) {
-                groups++;
-                goto outer;
-            } else if(l == 0) {
-                tmp = a[i][l];
+        tmp = a[i][0];
+        for(int l = 1; l < a[i].length(); l++) {
+            if(a[i][l] == tmp[tmpCount]) {
+                continue;
             } else {
-                if(a[i][l] == tmp[tmpCount]) {
-                    continue;
-                } else {
-                    tmp += a[i][l];
-                    tmpCount++;
-                }
+                tmp += a[i][l];
+                tmpCount++;
             }
         }
         for(int j = 0; j < tmpCount; j++) {
